@@ -1,7 +1,3 @@
-header img {
-    width: 100px;
-}
-
 .app-wrapper {
     width: 1200px;
     margin: 0 auto;
@@ -9,12 +5,12 @@ header img {
     grid-template-areas: "head head" "nav cont";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
+    gap: 10px;
     font-size: 20px;
 }
 
 .header {
     grid-area: head;
-    background-color: cornflowerblue;
 }
 
 .nav {
@@ -23,8 +19,4 @@ header img {
 
 .content {
     grid-area: cont;
-}
-
-.content img {
-    width: 100%;
 }

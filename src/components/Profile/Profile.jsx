@@ -1,24 +1,17 @@
 import React from 'react';
+import s from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts';
 
 const Profile = (props) => {
     return (
-        <div className="content">
+        <div className={`${s.content} content`}>
             <div>
                 <img src="https://media.resources.festicket.com/image/412x150/smart/filters:quality(70)/www/magazine/Techno_B_qdqEYIm.jpg" />
             </div>
             <div>
                 avatar + descr
             </div>
-            <div>
-                my posts
-                <div>
-                    new post
-                </div>
-                <div>
-                    <div>Post1</div>
-                    <div>Post2</div>
-                </div>
-            </div>
+            <MyPosts />
         </div>
     );
 };

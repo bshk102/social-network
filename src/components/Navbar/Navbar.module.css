@@ -1,0 +1,14 @@
+.nav {
+    background-color: cadetblue;
+    padding: 15px;
+}
+
+.item {
+    color: antiquewhite;
+    margin-bottom: 5px;
+}
+
+.item a {
+    color: antiquewhite;
+    text-decoration: none;
+}
