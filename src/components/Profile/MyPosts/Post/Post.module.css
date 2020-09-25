@@ -1,9 +1,25 @@
-.item img {
-    width: 30px;
-    height: 30px;
+.item .postImg img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 50px;
+    float: left;
 }
 
 .item span {
     display: block;
     font-size: 15px;
+    margin-top: 8px;
+    text-align: right;
+}
+
+.item {
+    margin-bottom: 15px;
+    background-color: lemonchiffon;
+    border-radius: 9px;
+    padding: 10px;
+}
+
+.item .postMessage {
+    float: left;
 }

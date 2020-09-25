@@ -1,0 +1,26 @@
+.postsBlock textarea,button {
+    display: block;
+    margin: 5px 0;
+    border: 1px solid lightcyan;
+    border-radius: 9px;
+}
+
+.postsBlock textarea {
+    padding: 10px;
+    width: 100%;
+    height: 85px;
+    resize: none;
+    border: 1px solid lightcyan;
+    border-radius: 9px;
+    background-color: rgb(245, 245, 245);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.postsBlock button {
+    margin-bottom: 30px;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+}

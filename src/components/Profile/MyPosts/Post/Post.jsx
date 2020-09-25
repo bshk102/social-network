@@ -13,8 +13,12 @@ const Post = (props) => {
 
     return (
         <div className={s.item}>
-            <img src="https://face.bubble.ru/_nuxt/img/5501f2b.jpg" />
-            {props.message}
+            <div className={s.postImg}>
+                <img src="https://face.bubble.ru/_nuxt/img/5501f2b.jpg" />
+            </div>
+            <div className="postMessage">
+                {props.message}
+            </div>
             <span>
                 {props.likesCount} {likesText}                
             </span>
