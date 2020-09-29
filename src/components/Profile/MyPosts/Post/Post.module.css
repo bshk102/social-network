@@ -18,6 +18,7 @@
     background-color: lemonchiffon;
     border-radius: 9px;
     padding: 10px;
+    border: 1px solid lightcyan;
 }
 
 .item .postMessage {
