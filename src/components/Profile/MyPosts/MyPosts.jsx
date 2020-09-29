@@ -1,19 +1,11 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import data from './../../../index';
 
 const MyPosts = (props) => {
 
-    let postsData = [
-        {message: 'YOYOgdrgdfgdfgdg dfgfdhjgfdhjghdfjghdjf dfghdkjhgjdhgjdfhg djghjdhgkjdfhg lorem sdvkjsdkvsdkvksdnvsdnvjsdvjsdnvjsdnvjsdndvsnsudhvisduvhsdnvsd',
-        likesCount: 0},
-        {message: 'Hi, how are you', likesCount: 15},
-        {message: 'it\'s my first post', likesCount: 20},
-        {message: 'check check', likesCount: 1},
-        {message: 'check check', likesCount: 2}
-    ];
-
-    let postsHTML = postsData.map(el => <Post message={el.message} likesCount={el.likesCount} />);
+    let postsHTML = data[2].map(el => <Post message={el.message} likesCount={el.likesCount} />);
 
     return (
         <div className={s.postsBlock}>

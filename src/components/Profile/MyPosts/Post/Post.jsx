@@ -3,13 +3,8 @@ import s from './Post.module.css';
 
 const Post = (props) => {
 
-    let likesText = '';
-
-    if (props.likesCount == 1) {
-        likesText = 'like';
-    } else {
-        likesText = 'likes';
-    }
+    let likesText;
+    props.likesCount == 1 ? likesText = 'like' : likesText = 'likes';
 
     return (
         <div className={s.item}>

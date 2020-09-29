@@ -1,32 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
-import News from './components/News/News';
-import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
-import { BrowserRouter, Route } from 'react-router-dom';
+import App from './App';
 
-
-const App = (props) => {
-    return (
-        <BrowserRouter>
-            <div className="app-wrapper">
-                <Header />
-                <Navbar />
-                <div className="app-wrapper-content">
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/dialogs" component={Dialogs} />
-                    <Route path="/news" component={News} />
-                    <Route path="/music" component={Music} />
-                    <Route path="/settings" component={Settings} />
-                </div>
-            </div>
-        </BrowserRouter>
-    );
-};
+let data = [
+    [
+        {name: 'Artem', id: 0},
+        {name: 'Sveta', id: 1},
+        {name: 'Dima', id: 2},
+        {name: 'Aza', id: 3},
+        {name: 'Kolya', id: 4},
+        {name: 'Ivan', id: 5}
+    ],
+    [
+        {message: 'Hi', id: 0},
+        {message: 'React JS??', id: 1},
+        {message: 'hello bro!', id: 2},
+        {message: 'yo', id: 3},
+        {message: 'yo!', id: 4}
+    ],
+    [
+        {message: 'YOYOgdrgdfgdfgdg dfgfdhjgfdhjghdfjghdjf dfghdkjhgjdhgjdfhg djghjdhgkjdfhg lorem sdvkjsdkvsdkvksdnvsdnvjsdvjsdnvjsdnvjsdndvsnsudhvisduvhsdnvsd',
+        likesCount: 0},
+        {message: 'Hi, how are you', likesCount: 15},
+        {message: 'it\'s my first post', likesCount: 20},
+        {message: 'check check', likesCount: 1},
+        {message: 'check check', likesCount: 2} 
+    ]
+];
 
 ReactDOM.render(<App />, document.querySelector('#root'));
+
+export default data;
