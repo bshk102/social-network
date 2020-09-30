@@ -1,11 +1,10 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import data from './../../../index';
 
 const MyPosts = (props) => {
 
-    let postsHTML = data[2].map(el => <Post message={el.message} likesCount={el.likesCount} />);
+    let postsHTML = props.postsData.map(el => <Post message={el.message} likesCount={el.likesCount} />);
 
     return (
         <div className={s.postsBlock}>
