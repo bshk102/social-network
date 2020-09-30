@@ -20,3 +20,9 @@
 .friends {
     margin-top: 20px;
 }
+
+.randomFriends {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}

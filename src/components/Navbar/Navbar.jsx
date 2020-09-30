@@ -9,7 +9,16 @@ const Navbar = (props) => {
         return Math.random() - 0.5;
     });
 
-    console.log(randomFriends);
+    let randomFriendsDraw = [];
+
+    for (let i=0; i<3; i++) {
+        randomFriendsDraw.push(
+            <NavbarFriends 
+                name={randomFriends[i].name} avatar={randomFriends[i].avatar} friends={props.friends}
+                className={s.randomFriends} 
+            />
+        );
+    }
 
     return (
         <nav className={`${s.nav} nav`}>
@@ -31,18 +40,9 @@ const Navbar = (props) => {
             <div className={`${s.item} ${s.friends}`}>
                 <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
             </div>
-            <NavbarFriends 
-                name={randomFriends[0].name} avatar={randomFriends[0].avatar} friends={props.friends}
-                className={s.randomFriends} 
-            />
-            <NavbarFriends 
-                name={randomFriends[1].name} avatar={randomFriends[1].avatar} friends={props.friends}
-                className={s.randomFriends} 
-            />
-            <NavbarFriends 
-                name={randomFriends[2].name} avatar={randomFriends[2].avatar} friends={props.friends}
-                className={s.randomFriends} 
-            />
+            <div className={s.randomFriends}>
+                {randomFriendsDraw}
+            </div>            
         </nav>
     );
 };

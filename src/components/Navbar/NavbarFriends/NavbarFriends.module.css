@@ -1,10 +1,4 @@
-.NavbarFriends {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 5px;
-}
-
-.friend {
+.NavbarFriends .friend {
     margin-right: 7px;
 }
 
