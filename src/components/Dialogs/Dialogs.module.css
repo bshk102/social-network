@@ -12,7 +12,33 @@
 }
 
 .dialogsItems .dialog {
+    color: lightblue;
+}
+
+.dialogsItems .dialog:hover {
+    border: 1px solid #000;
+}
+
+.dialogsItems .dialog.active {
+    border: 1px solid #000;
+}
+
+.dialogsItems .dialog a {
+    display: flex;
+    justify-content: left;
+    flex-direction: row-reverse;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
     padding: 10px;
+}
+
+.dialogsItems .dialog img {
+    display: block;
+    width: 20px;
+    margin-right: 8px;
 }
 
 .messages {
@@ -21,4 +47,6 @@
 
 .messages .message {
     padding: 10px;
+    background-color: khaki;
+    width: fit-content;
 }
