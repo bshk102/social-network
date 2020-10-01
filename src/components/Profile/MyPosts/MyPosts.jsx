@@ -6,19 +6,19 @@ const MyPosts = (props) => {
 
     let postsHTML = props.postsData.map(el => <Post message={el.message} likesCount={el.likesCount} />);
 
-    const postText = React.createRef();
+    const userInput = React.createRef();
 
-    const addPost = () => {
-        console.log(postText.current.value);
-        postText.current.value = '';
+    const add = () => {
+        props.addNewPost(userInput.current.value);
+        userInput.current.value = '';
     };
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
             <div>
-                <textarea ref={postText} cols="20" rows="4"></textarea>
-                <button onClick={addPost}>Add Post</button>
+                <textarea ref={userInput} cols="20" rows="4"></textarea>
+                <button onClick={add}>Add Post</button>
             </div>
             <div className={s.posts}>
                 {postsHTML}

@@ -36,4 +36,12 @@ let state = {
     ],
 };
 
+export const addNewPost = (postText) => {
+    let newPost = {
+        message: postText,
+        likesCount: 0
+    };
+    state.profile.postsData.unshift(newPost);
+};
+
 export default state;
