@@ -1,10 +1,42 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    grid-template-rows: 9fr 2fr;
+    grid-template-areas: "dialogs messages" 
+                        "dialogs input";
 }
 
 .dialogsItems {
     padding: 10px;
+    grid-area: "dialogs";
+}
+
+.sendMessage {
+    grid-area: "input";
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.sendMessage textarea {
+    resize: none;
+    padding: 10px;
+    margin-right: 20px;
+    background-color: rgb(245, 245, 245);
+}
+
+.sendMessage button {
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.sendMessage button,textarea {
+    display: block;
+    margin: 5px 0;
+    border: 1px solid lightcyan;
+    border-radius: 9px;
 }
 
 .dialogsItems .active {
