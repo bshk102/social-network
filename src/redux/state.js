@@ -1,4 +1,4 @@
-import {rerenderEntireTree} from './../render';
+let rerenderEntireTree;
 
 let state = {
     profile: {
@@ -68,6 +68,10 @@ export const sendMessage = () => {
 export const inputMessage = (message) => {
     state.dialogs.textareaValue = message;
     rerenderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 };
 
 window.state = state;
