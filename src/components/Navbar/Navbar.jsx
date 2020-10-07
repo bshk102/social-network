@@ -42,7 +42,7 @@ const Navbar = (props) => {
             </div>
             <div className={s.randomFriends}>
                 {randomFriendsDraw}
-            </div>            
+            </div>
         </nav>
     );
 };

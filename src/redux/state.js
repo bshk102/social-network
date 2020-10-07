@@ -27,7 +27,8 @@ let state = {
             {message: 'hello bro!', id: 2},
             {message: 'yo', id: 3},
             {message: 'yo!', id: 4}
-        ]
+        ],
+        textareaValue: ''
     },
     friends: [
         {name: 'Artem', surname: 'Kasimov', avatar: 'https://instagram.frix7-1.fna.fbcdn.net/v/t51.2885-19/s150x150/106240903_275098976938635_5002446073382884495_n.jpg?_nc_ht=instagram.frix7-1.fna.fbcdn.net&_nc_ohc=Iss_ChChLLQAX97Kr86&oh=f89b528666b7add4f1343fc20e186198&oe=5F9FBED3'},
@@ -53,5 +54,22 @@ export const changeTextareaValue = (inputText) => {
     state.profile.textareaValue = inputText;
     rerenderEntireTree(state);
 };
+
+export const sendMessage = () => {
+    let newMessage = {
+        message: state.dialogs.textareaValue,
+        id: ++state.dialogs.messagesData.length
+    };
+    state.dialogs.messagesData.push(newMessage);
+    state.dialogs.textareaValue = '';
+    rerenderEntireTree(state);
+};
+
+export const inputMessage = (message) => {
+    state.dialogs.textareaValue = message;
+    rerenderEntireTree(state);
+};
+
+window.state = state;
 
 export default state;
