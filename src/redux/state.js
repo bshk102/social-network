@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from './../render';
+
 let state = {
     profile: {
         postsData: [
@@ -7,7 +9,8 @@ let state = {
             {message: 'it\'s my first post', likesCount: 20},
             {message: 'check check', likesCount: 1},
             {message: 'check check', likesCount: 2} 
-        ]
+        ],
+        textareaValue: ''
     },
     dialogs: {
         dialogsData: [
@@ -36,12 +39,19 @@ let state = {
     ],
 };
 
-export const addNewPost = (postText) => {
+export const addNewPost = () => {
     let newPost = {
-        message: postText,
+        message: state.profile.textareaValue,
         likesCount: 0
     };
     state.profile.postsData.unshift(newPost);
+    state.profile.textareaValue = '';
+    rerenderEntireTree(state);
+};
+
+export const changeTextareaValue = (inputText) => {
+    state.profile.textareaValue = inputText;
+    rerenderEntireTree(state);
 };
 
 export default state;

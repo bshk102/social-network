@@ -24,3 +24,8 @@
     cursor: pointer;
     text-transform: uppercase;
 }
+
+.postsBlock h3 {
+    font-style: italic;
+    font-weight: 400;
+}
