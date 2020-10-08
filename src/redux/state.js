@@ -50,7 +50,7 @@ export const addNewPost = () => {
     rerenderEntireTree(state);
 };
 
-export const changeTextareaValue = (inputText) => {
+export const inputPostText = (inputText) => {
     state.profile.textareaValue = inputText;
     rerenderEntireTree(state);
 };

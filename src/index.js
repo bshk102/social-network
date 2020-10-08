@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
-import {addNewPost, changeTextareaValue, inputMessage, sendMessage, subscribe} from './redux/state';
+import {addNewPost, inputPostText, inputMessage, sendMessage, subscribe} from './redux/state';
 import state from './redux/state';
 
 const rerenderEntireTree = (state) => {
@@ -12,7 +12,7 @@ const rerenderEntireTree = (state) => {
             <App 
                 state={state} 
                 addNewPost={addNewPost} 
-                changeTextareaValue={changeTextareaValue} 
+                inputPostText={inputPostText} 
                 inputMessage={inputMessage}
                 sendMessage={sendMessage}
             />

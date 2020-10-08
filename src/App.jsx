@@ -20,7 +20,7 @@ const App = (props) => {
                     <Profile 
                         profile={props.state.profile} 
                         addNewPost={props.addNewPost} 
-                        changeTextareaValue={props.changeTextareaValue}
+                        inputPostText={props.inputPostText}
                      /> 
                 } />
                 <Route path="/dialogs" render={ () => 

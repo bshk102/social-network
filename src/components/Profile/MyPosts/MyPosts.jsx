@@ -13,7 +13,7 @@ const MyPosts = (props) => {
     };
 
     const textareaValueChange = () => {
-        props.changeTextareaValue(userInput.current.value);
+        props.inputPostText(userInput.current.value);
     };
 
     return (
