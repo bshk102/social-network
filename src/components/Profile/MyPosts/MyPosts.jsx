@@ -9,11 +9,11 @@ const MyPosts = (props) => {
     const userInput = React.createRef();
 
     const add = () => {
-        props.addNewPost();
+        props.dispatch({type: 'ADD-NEW-POST'});
     };
 
     const textareaValueChange = () => {
-        props.inputPostText(userInput.current.value);
+        props.dispatch({type: 'INPUT-POST-TEXT', inputText: userInput.current.value});
     };
 
     return (

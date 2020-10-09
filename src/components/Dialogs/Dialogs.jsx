@@ -11,11 +11,11 @@ const Dialogs = (props) => {
     const textMessage = React.createRef();
 
     const sendMessage = () => {
-        props.sendMessage();
+        props.dispatch({type: 'SEND-MESSAGE'});
     };
 
     const inputMessage = () => {
-        props.inputMessage(textMessage.current.value);
+        props.dispatch({type: 'INPUT-MESSAGE', message: textMessage.current.value});
     };
 
     return (

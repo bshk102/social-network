@@ -48,23 +48,8 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-
-    addNewPost() {
-        let newPost = {
-            message: this._state.profile.textareaValue,
-            likesCount: 0
-        };
-        this._state.profile.postsData.unshift(newPost);
-        this._state.profile.textareaValue = '';
-        this._callSubscriber(this._state);
-    },
-
-    inputPostText(inputText) {
-        this._state.profile.textareaValue = inputText;
-        this._callSubscriber(this._state);
-    },
-
-    sendMessage() {
+    
+    _sendMessage() {
         let newMessage = {
             message: this._state.dialogs.textareaValue,
             id: ++this._state.dialogs.messagesData.length
@@ -74,13 +59,28 @@ let store = {
         this._callSubscriber(this._state);
     },
 
-    inputMessage(message) {
+    _inputMessage(message) {
         this._state.dialogs.textareaValue = message;
         this._callSubscriber(this._state);
     },
 
     dispatch(action) {
-
+        if (action.type==='ADD-NEW-POST') {
+            let newPost = {
+                message: this._state.profile.textareaValue,
+                likesCount: 0
+            };
+            this._state.profile.postsData.unshift(newPost);
+            this._state.profile.textareaValue = '';
+            this._callSubscriber(this._state);
+        } else if (action.type==='INPUT-POST-TEXT') {
+            this._state.profile.textareaValue = action.inputText;
+            this._callSubscriber(this._state);
+        } else if (action.type==='SEND-MESSAGE') {
+            return this._sendMessage();
+        } else if (action.type==='INPUT-MESSAGE') {
+            return this._inputMessage(action.message);
+        }
     }
 };
 
