@@ -52,7 +52,7 @@ let store = {
     _sendMessage() {
         let newMessage = {
             message: this._state.dialogs.textareaValue,
-            id: ++this._state.dialogs.messagesData.length
+            id: this._state.dialogs.messagesData.length
         };
         this._state.dialogs.messagesData.push(newMessage);
         this._state.dialogs.textareaValue = '';
@@ -86,5 +86,7 @@ let store = {
         }
     }
 };
+
+window.store = store;
 
 export default store;
