@@ -48,7 +48,7 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    
+
     _sendMessage() {
         let newMessage = {
             message: this._state.dialogs.textareaValue,
@@ -65,21 +65,24 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type==='ADD-NEW-POST') {
-            let newPost = {
-                message: this._state.profile.textareaValue,
-                likesCount: 0
-            };
-            this._state.profile.postsData.unshift(newPost);
-            this._state.profile.textareaValue = '';
-            this._callSubscriber(this._state);
-        } else if (action.type==='INPUT-POST-TEXT') {
-            this._state.profile.textareaValue = action.inputText;
-            this._callSubscriber(this._state);
-        } else if (action.type==='SEND-MESSAGE') {
-            return this._sendMessage();
-        } else if (action.type==='INPUT-MESSAGE') {
-            return this._inputMessage(action.message);
+        switch(action.type) {
+            case 'ADD-NEW-POST':
+                let newPost = {
+                    message: this._state.profile.textareaValue,
+                    likesCount: 0
+                };
+                this._state.profile.postsData.unshift(newPost);
+                this._state.profile.textareaValue = '';
+                this._callSubscriber(this._state);
+                break;
+            case 'INPUT-POST-TEXT':
+                this._state.profile.textareaValue = action.inputText;
+                this._callSubscriber(this._state);
+                break;
+            case 'SEND-MESSAGE':
+                return this._sendMessage();
+            case 'INPUT-MESSAGE':
+                return this._inputMessage(action.message);
         }
     }
 };
