@@ -1,3 +1,8 @@
+const ADD_NEW_POST = 'ADD-NEW-POST',
+    INPUT_POST_TEXT = 'INPUT-POST-TEXT',
+    SEND_MESSAGE = 'SEND-MESSAGE',
+    INPUT_MESSAGE = 'INPUT-MESSAGE';
+
 let store = {
     _state: {
         profile: {
@@ -66,7 +71,7 @@ let store = {
 
     dispatch(action) {
         switch(action.type) {
-            case 'ADD-NEW-POST':
+            case ADD_NEW_POST:
                 let newPost = {
                     message: this._state.profile.textareaValue,
                     likesCount: 0
@@ -75,17 +80,23 @@ let store = {
                 this._state.profile.textareaValue = '';
                 this._callSubscriber(this._state);
                 break;
-            case 'INPUT-POST-TEXT':
+            case INPUT_POST_TEXT:
                 this._state.profile.textareaValue = action.inputText;
                 this._callSubscriber(this._state);
                 break;
-            case 'SEND-MESSAGE':
+            case SEND_MESSAGE:
                 return this._sendMessage();
-            case 'INPUT-MESSAGE':
+            case INPUT_MESSAGE:
                 return this._inputMessage(action.message);
         }
     }
 };
+
+export const addNewPostActionCreator = () => ({type: ADD_NEW_POST});
+export const inputPostTextActionCreator = (text) => ({type: INPUT_POST_TEXT, inputText: text});
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
+export const inputMessageActionCreator = (text) => ({type: INPUT_MESSAGE, message: text});
+
 
 window.store = store;
 
