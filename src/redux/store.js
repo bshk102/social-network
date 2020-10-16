@@ -1,7 +1,6 @@
-const ADD_NEW_POST = 'ADD-NEW-POST',
-    INPUT_POST_TEXT = 'INPUT-POST-TEXT',
-    SEND_MESSAGE = 'SEND-MESSAGE',
-    INPUT_MESSAGE = 'INPUT-MESSAGE';
+import dialogsReducer from './dialogs-reducer';
+import friendsReducer from './friends-reducer';
+import profileReducer from './profile-reducer';
 
 let store = {
     _state: {
@@ -54,49 +53,14 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    _sendMessage() {
-        let newMessage = {
-            message: this._state.dialogs.textareaValue,
-            id: this._state.dialogs.messagesData.length
-        };
-        this._state.dialogs.messagesData.push(newMessage);
-        this._state.dialogs.textareaValue = '';
-        this._callSubscriber(this._state);
-    },
-
-    _inputMessage(message) {
-        this._state.dialogs.textareaValue = message;
-        this._callSubscriber(this._state);
-    },
-
     dispatch(action) {
-        switch(action.type) {
-            case ADD_NEW_POST:
-                let newPost = {
-                    message: this._state.profile.textareaValue,
-                    likesCount: 0
-                };
-                this._state.profile.postsData.unshift(newPost);
-                this._state.profile.textareaValue = '';
-                this._callSubscriber(this._state);
-                break;
-            case INPUT_POST_TEXT:
-                this._state.profile.textareaValue = action.inputText;
-                this._callSubscriber(this._state);
-                break;
-            case SEND_MESSAGE:
-                return this._sendMessage();
-            case INPUT_MESSAGE:
-                return this._inputMessage(action.message);
-        }
+
+        this._state.profile = profileReducer(this._state.profile, action);
+        this._state.dialogs = dialogsReducer(this._state.dialogs, action);
+        this._state.friends = friendsReducer(this._state.friends, action);
+        this._callSubscriber(this._state);
     }
 };
-
-export const addNewPostActionCreator = () => ({type: ADD_NEW_POST});
-export const inputPostTextActionCreator = (text) => ({type: INPUT_POST_TEXT, inputText: text});
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
-export const inputMessageActionCreator = (text) => ({type: INPUT_MESSAGE, message: text});
-
 
 window.store = store;
 
